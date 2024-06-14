@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito, Fjalla_One } from "next/font/google";
 import "./globals.css";
-import { Header } from "./components/Header";
+import { Header } from "../components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+export const fjala = Fjalla_One({
+  subsets: ["latin"],
+  weight: ["400"],
+  preload: false,
+});
+
+export const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["400"],
+  preload: false,
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Header />
         {children}
       </body>
