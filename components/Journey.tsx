@@ -1,14 +1,15 @@
-import React from "react";
+import { Send } from "lucide-react";
+import Link from "next/link";
 
 export const Journey = () => {
   return (
-    <div className="py-10 w-2/3">
+    <div className="py-10 max-w-[700px]">
       <h1 className="text-center font-bold text-4xl fjalla">JOURNEY</h1>
       <p className="my-6 nunito">
-        I am a dedicated Frontend Developer with a passion for creating web and
-        mobile applications using React and React Native technologies. My
-        journey in development began in London in 2017, where I started as a
-        freelancer, crafting my first commercial websites.
+        I am a Frontend Developer with a passion for creating web and mobile
+        applications using React and React Native technologies. My journey in
+        development began in London in 2017, where I started as a freelancer,
+        crafting my first commercial websites.
       </p>
       <p className="my-6 nunito">
         The next step in my career was joining a London-based company. Here, I
@@ -35,10 +36,15 @@ export const Journey = () => {
         and strong motivation to continually enhance my skills.
       </p>
       <p className="my-6 nunito">
-        Programming is not just my profession but also a source of joy and
-        fulfillment for me. I am always eager to take on new challenges and push
-        the boundaries of what can be achieved through code.
+        I offer my services as a frontend developer for hire to work with
+        businesses of all sizes. Feel free to get in touch. I&#39;m available
+        during the week to discuss and advise on your project or development
+        needs.
       </p>
+      <Link className="flex" href="mailto:tomfraczekdev@gmail.com">
+        <Send />
+        <span className="ml-3">tomfraczekdev@gmail.com</span>
+      </Link>
     </div>
   );
 };

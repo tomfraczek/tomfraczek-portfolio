@@ -1,5 +1,3 @@
-// components/StackBanner.js
-
 import aws from "@/public/icons/aws.svg";
 import contentful from "@/public/icons/contentful.svg";
 import css from "@/public/icons/css.svg";
