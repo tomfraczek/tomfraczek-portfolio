@@ -3,9 +3,7 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-
-import Tooltip from "@mui/material/Tooltip";
-import Fade from "@mui/material/Fade";
+import { styled } from "@mui/material/styles";
 
 import contentful from "@/public/icons/contentful.svg";
 import modules from "@/public/icons/css-modules.svg";
@@ -29,7 +27,7 @@ import react from "@/public/icons/react.svg";
 import redux from "@/public/icons/redux.svg";
 import sass from "@/public/icons/sass.svg";
 import storyblok from "@/public/icons/storyblok.svg";
-import styled from "@/public/icons/styled.svg";
+import styledComponent from "@/public/icons/styled.svg";
 import sketch from "@/public/icons/sketch.svg";
 import typescript from "@/public/icons/typescript.svg";
 import vitest from "@/public/icons/vitest.svg";
@@ -39,34 +37,156 @@ import cambridge from "@/public/icons/cambridge.svg";
 import apptension from "@/public/icons/apptension.png";
 
 import Image from "next/image";
+import Link from "next/link";
 const techStack = [
-  { title: "Bitbucket", icon: bitbucket, category: "tools" },
-  { title: "Contentful", icon: contentful, category: "backend" },
-  { title: "Express", icon: express, category: "backend" },
-  { title: "Firebase", icon: firebase, category: "backend" },
-  { title: "MongoDB", icon: mongodb, category: "backend" },
-  { title: "Node.js", icon: node, category: "backend" },
-  { title: "CSS", icon: css, category: "frontend" },
-  { title: "Figma", icon: figma, category: "ui" },
-  { title: "Sketch", icon: sketch, category: "ui" },
-  { title: "Git", icon: git, category: "tools" },
-  { title: "GitHub", icon: github, category: "tools" },
-  { title: "GraphQL", icon: graphql, category: "frontend" },
-  { title: "HTML", icon: html, category: "frontend" },
-  { title: "JavaScript", icon: javascript, category: "frontend" },
-  { title: "Jest", icon: jest, category: "testing" },
-  { title: "Vitest", icon: vitest, category: "testing" },
-  { title: "Jira", icon: jira, category: "tools" },
-  { title: "Next.js", icon: nextjs, category: "frontend" },
-  { title: "React Testing Library", icon: octopus, category: "testing" },
-  { title: "Storyblok", icon: storyblok, category: "backend" },
-  { title: "React", icon: react, category: "frontend" },
-  { title: "Redux", icon: redux, category: "frontend" },
-  { title: "Sass", icon: sass, category: "frontend" },
-  { title: "styled-components", icon: styled, category: "frontend" },
-  { title: "CSS Modules", icon: modules, category: "frontend" },
-  { title: "Less", icon: less, category: "frontend" },
-  { title: "TypeScript", icon: typescript, category: "tools" },
+  {
+    title: "Bitbucket",
+    icon: bitbucket,
+    category: "tools",
+    url: "https://bitbucket.org/",
+  },
+  {
+    title: "Contentful",
+    icon: contentful,
+    category: "backend",
+    url: "https://www.contentful.com/",
+  },
+  {
+    title: "Express",
+    icon: express,
+    category: "backend",
+    url: "https://expressjs.com/",
+  },
+  {
+    title: "Firebase",
+    icon: firebase,
+    category: "backend",
+    url: "https://firebase.google.com/",
+  },
+  {
+    title: "MongoDB",
+    icon: mongodb,
+    category: "backend",
+    url: "https://www.mongodb.com/",
+  },
+  {
+    title: "Node.js",
+    icon: node,
+    category: "backend",
+    url: "https://nodejs.org/",
+  },
+  {
+    title: "CSS",
+    icon: css,
+    category: "frontend",
+    url: "https://www.w3.org/TR/2001/WD-css3-roadmap-20010523/",
+  },
+  {
+    title: "Figma",
+    icon: figma,
+    category: "ui",
+    url: "https://www.figma.com/",
+  },
+  {
+    title: "Sketch",
+    icon: sketch,
+    category: "ui",
+    url: "https://www.sketch.com/",
+  },
+  {
+    title: "Git",
+    icon: git,
+    category: "tools",
+    url: "https://www.git-scm.com/",
+  },
+  {
+    title: "GitHub",
+    icon: github,
+    category: "tools",
+    url: "https://github.com/",
+  },
+  {
+    title: "GraphQL",
+    icon: graphql,
+    category: "frontend",
+    url: "https://graphql.org/",
+  },
+  {
+    title: "HTML",
+    icon: html,
+    category: "frontend",
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+  },
+  {
+    title: "JavaScript",
+    icon: javascript,
+    category: "frontend",
+    url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  { title: "Jest", icon: jest, category: "testing", url: "https://jestjs.io/" },
+  { title: "Vitest", icon: vitest, category: "testing", url: "" },
+  { title: "Jira", icon: jira, category: "tools", url: "" },
+  { title: "Next.js", icon: nextjs, category: "frontend", url: "" },
+  {
+    title: "React Testing Library",
+    icon: octopus,
+    category: "testing",
+    url: "https://vitest.dev/",
+  },
+  {
+    title: "Storyblok",
+    icon: storyblok,
+    category: "backend",
+    url: "https://www.storyblok.com/",
+  },
+  {
+    title: "React",
+    icon: react,
+    category: "frontend",
+    url: "https://react.dev/",
+  },
+  {
+    title: "React Native",
+    icon: react,
+    category: "frontend",
+    url: "https://reactnative.dev/",
+  },
+  {
+    title: "Redux",
+    icon: redux,
+    category: "frontend",
+    url: "https://redux.js.org/",
+  },
+  {
+    title: "Sass",
+    icon: sass,
+    category: "frontend",
+    url: "https://sass-lang.com/",
+  },
+  {
+    title: "styled-components",
+    icon: styledComponent,
+    category: "frontend",
+    url: "https://styled-components.com/",
+  },
+  {
+    title: "CSS-Modules",
+    icon: modules,
+    category: "frontend",
+    url: "https://github.com/css-modules/css-modules",
+  },
+  {
+    title: "Less",
+    icon: less,
+    category: "frontend",
+    url: "https://lesscss.org/",
+  },
+  {
+    title: "TypeScript",
+    icon: typescript,
+    category: "tools",
+    url: "https://www.typescriptlang.org/",
+  },
 ];
 const experience = [
   {
@@ -85,6 +205,23 @@ const experience = [
       "Used headless CMS platforms like Storyblok and Contentful for backend management.",
       "Engaged in client communication, gathering requirements, providing progress updates, and incorporating feedback throughout the development process.",
     ],
+    technologies: [
+      "React",
+      "React Native",
+      "Next.js",
+      "GraphQL",
+      "TypeScript",
+      "styled-components",
+      "CSS Modules",
+      "Jest",
+      "Vitest",
+      "React Testing Library",
+      "AWS",
+      "Storyblok",
+      "Contentful",
+      "Git",
+      "Jira",
+    ],
   },
   {
     jobTitle: "Frontend Developer",
@@ -101,6 +238,17 @@ const experience = [
       "Optimized websites for maximum speed and scalability, employing techniques such as image optimization, code minification, and caching strategies.",
       "Developed reusable code components to streamline development processes and facilitate future enhancements and iterations.",
     ],
+    technologies: [
+      "React",
+      "Redux",
+      "CSS/SASS/Less",
+      "Drupal 8",
+      "JavaScript",
+      "HTML",
+      "Twig",
+      "Sketch",
+      "Git",
+    ],
   },
   {
     jobTitle: "Web Developer",
@@ -113,6 +261,7 @@ const experience = [
       "Maintained a strong focus on usability, accessibility, and user experience, implementing industry best practices to enhance website performance and user engagement.",
       "Utilized expertise in frontend technologies such as HTML, CSS, JavaScript, and responsive design frameworks to craft visually appealing and functional websites that consistently meet client expectations.",
     ],
+    technologies: ["All above"],
   },
 ];
 
@@ -144,6 +293,7 @@ function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
+    className: "text-gray-500",
   };
 }
 
@@ -155,7 +305,7 @@ export const Experience = () => {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%" }} id="skills" className="mt-24">
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs
           value={value}
@@ -182,12 +332,15 @@ export const Experience = () => {
                 .sort((a, b) => a.title.localeCompare(b.title))
                 .map((item, i) => (
                   <div className="relative group flex-none" key={i}>
-                    <Image
-                      src={item.icon}
-                      height={50}
-                      alt={`${item.title} icon`}
-                      className="cursor-pointer transform transition-transform duration-300 hover:scale-125"
-                    />
+                    <a href={item.url} target="_blank">
+                      <Image
+                        priority={true}
+                        src={item.icon}
+                        height={50}
+                        alt={`${item.title} icon`}
+                        className="cursor-pointer transform transition-transform duration-300 hover:scale-125"
+                      />
+                    </a>
                     <span className="absolute left-1/2 transform -translate-x-1/2 mt-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap">
                       {item.title}
                     </span>
@@ -207,6 +360,7 @@ export const Experience = () => {
               <div className="flex-none absolute right-full top-0 w-max">
                 {item.logo && (
                   <Image
+                    priority={true}
                     src={item.logo}
                     width={150}
                     height={50}
@@ -227,6 +381,16 @@ export const Experience = () => {
                     </li>
                   ))}
                 </ul>
+                <div className="flex flex-wrap gap-3 items-center mt-5">
+                  <p className="text-sm text-gray-600 mr-5">
+                    Development tools:
+                  </p>
+                  {item.technologies.map((item, i) => (
+                    <span key={i} className="py-2 px-6 bg-gray-500 text-white">
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

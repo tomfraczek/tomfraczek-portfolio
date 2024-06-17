@@ -2,7 +2,7 @@ import React from "react";
 
 export const Questions = () => {
   return (
-    <div className="py-10 w-2/3">
+    <div className="mt-24 w-2/3" id="stories">
       <h1 className="text-center font-bold text-4xl fjalla">
         What is a Frontend Developer
       </h1>
@@ -15,7 +15,9 @@ export const Questions = () => {
         developers focus on implementing design mockups, adding interactivity,
         optimizing performance, and enhancing the overall user experience.
       </p>
-      <h1 className="text-center font-bold text-4xl fjalla">Why backend?</h1>
+      <h1 className="text-center font-bold text-4xl fjalla mt-24">
+        Why backend?
+      </h1>
       <p className="my-6 nunito">
         Although my primary focus has been on frontend development, I am
         learning backend technologies like Node.js, Express, and MongoDB to

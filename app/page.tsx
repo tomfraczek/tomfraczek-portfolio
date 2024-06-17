@@ -7,7 +7,7 @@ import { Experience } from "@/components/Experience";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center px-24 mb-36 overflow-hidden">
+    <main className="flex min-h-screen flex-col items-center px-72 mb-36 overflow-hidden">
       <Hero />
       <StackBanner />
       <Journey />

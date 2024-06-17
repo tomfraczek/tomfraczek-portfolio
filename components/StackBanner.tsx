@@ -21,7 +21,7 @@ import typescript from "@/public/icons/typescript.svg";
 import Image from "next/image";
 
 const techStack = [
-  aws,
+  // aws,
   contentful,
   css,
   figma,
@@ -46,9 +46,9 @@ const techStack = [
 export const StackBanner = () => {
   return (
     <div className="overflow-hidden relative bg-gray-200 py-5 w-screen">
-      <div className="flex animate-scroll">
-        {[...techStack, ...techStack].map((item, i) => (
-          <div className="flex-none mx-3" key={i}>
+      <div className="flex justify-center flex-wrap animate-scroll">
+        {techStack.map((item, i) => (
+          <div className="flex-none m-3" key={i}>
             <Image src={item} width={50} alt="tech icon" />
           </div>
         ))}

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const Journey = () => {
   return (
-    <div className="py-10 max-w-[700px]">
+    <div className="mt-24 max-w-[700px]" id="journey">
       <h1 className="text-center font-bold text-4xl fjalla">JOURNEY</h1>
       <p className="my-6 nunito">
         I am a Frontend Developer with a passion for creating web and mobile
