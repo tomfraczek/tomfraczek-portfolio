@@ -12,9 +12,6 @@ export async function POST(request: NextRequest) {
   try {
     const { email, message, name } = (await request.json()) as RequestBody;
 
-    console.log("NODEMAILER_EMAIL:", process.env.NODEMAILER_EMAIL);
-    console.log("NODEMAILER_PW:", process.env.NODEMAILER_PW);
-
     if (!process.env.NODEMAILER_EMAIL || !process.env.NODEMAILER_PW) {
       throw new Error("Missing environment variables for Nodemailer");
     }
@@ -52,9 +49,18 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error("Error sending email:", error); // Log the error details
-    return NextResponse.json(
-      { message: "Failed to Send Email", error: error.message }, // Include the error message in the response
-      { status: 500 }
-    );
+
+    // Check if the error is an instance of Error and handle it accordingly
+    if (error instanceof Error) {
+      return NextResponse.json(
+        { message: "Failed to Send Email", error: error.message }, // Include the error message in the response
+        { status: 500 }
+      );
+    } else {
+      return NextResponse.json(
+        { message: "Failed to Send Email", error: "Unknown error" }, // Fallback for unknown errors
+        { status: 500 }
+      );
+    }
   }
 }

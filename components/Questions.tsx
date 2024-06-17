@@ -2,7 +2,10 @@ import React from "react";
 
 export const Questions = () => {
   return (
-    <div className="mt-24 py-24 w-2/3 border-t" id="stories">
+    <div
+      className="md:mt-24 mt-10 md:py-24 py-10 w-11/12 md:w-2/3 border-t"
+      id="stories"
+    >
       <h1 className="text-center font-bold text-4xl fjalla">
         What is a Frontend Developer
       </h1>

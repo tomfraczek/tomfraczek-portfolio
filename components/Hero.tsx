@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export const Hero = () => {
   return (
-    <div className="flex flex-col justify-between md:flex-row items-center relative min-h-[550px]">
-      <div className="w-2/3 flex flex-col justify-start items-start">
-        <span className="text-gray-500 mb-4 block text-2xl">
+    <div className="flex flex-col justify-between lg:flex-row items-center relative min-h-[550px]">
+      <div className="w-11/12 lg:w-2/3 flex flex-col justify-start items-start">
+        <span className="text-gray-500 mb-4 block text-2xl mt-16">
           Hi, my name is Tomasz Fraczek
         </span>
         <h1 className="text-5xl tracking-tighter font-sans font-normal">
@@ -20,7 +20,7 @@ export const Hero = () => {
           Get In Touch
         </Link>
       </div>
-      <Image src={portrait} alt="portrait" className="max-w-sm self-end" />
+      <Image src={portrait} alt="portrait" className="max-w-sm lg:self-end" />
     </div>
   );
 };

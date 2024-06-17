@@ -1,3 +1,4 @@
+import { techStack } from "@/lib/variables";
 import aws from "@/public/icons/aws.svg";
 import contentful from "@/public/icons/contentful.svg";
 import css from "@/public/icons/css.svg";
@@ -20,38 +21,28 @@ import styled from "@/public/icons/styled.svg";
 import typescript from "@/public/icons/typescript.svg";
 import Image from "next/image";
 
-const techStack = [
-  // aws,
-  contentful,
-  css,
-  figma,
-  firebase,
-  git,
-  github,
-  graphql,
-  html,
-  javascript,
-  jest,
-  jira,
-  nextjs,
-  octopus,
-  react,
-  redux,
-  sass,
-  storyblok,
-  styled,
-  typescript,
-];
-
 export const StackBanner = () => {
   return (
     <div className="overflow-hidden relative bg-gray-200 py-5 w-screen">
-      <div className="flex justify-center flex-wrap animate-scroll">
-        {techStack.map((item, i) => (
-          <div className="flex-none m-3" key={i}>
-            <Image src={item} width={50} alt="tech icon" />
-          </div>
-        ))}
+      <div className="p-5 flex gap-10 justify-center flex-wrap animate-scroll">
+        {techStack
+          .sort(() => Math.random() - 0.5) // Random sort order
+          .map((item, i) => (
+            <div className="relative group flex-none" key={i}>
+              <a href={item.url} target="_blank">
+                <Image
+                  priority={true}
+                  src={item.icon}
+                  height={50}
+                  alt={`${item.title} icon`}
+                  className="cursor-pointer transform transition-transform duration-300 hover:scale-125"
+                />
+              </a>
+              <span className="absolute left-1/2 transform -translate-x-1/2 mt-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap">
+                {item.title}
+              </span>
+            </div>
+          ))}
       </div>
     </div>
   );
