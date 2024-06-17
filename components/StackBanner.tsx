@@ -29,18 +29,12 @@ export const StackBanner = () => {
           .sort(() => Math.random() - 0.5) // Random sort order
           .map((item, i) => (
             <div className="relative group flex-none" key={i}>
-              <a href={item.url} target="_blank">
-                <Image
-                  priority={true}
-                  src={item.icon}
-                  height={50}
-                  alt={`${item.title} icon`}
-                  className="cursor-pointer transform transition-transform duration-300 hover:scale-125"
-                />
-              </a>
-              <span className="absolute left-1/2 transform -translate-x-1/2 mt-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap">
-                {item.title}
-              </span>
+              <Image
+                priority={true}
+                src={item.icon}
+                height={50}
+                alt={`${item.title} icon`}
+              />
             </div>
           ))}
       </div>

@@ -131,7 +131,7 @@ export const Experience = () => {
       <h1 className="text-gray-500 text-center font-bold text-4xl fjalla mt-24">
         Skills & Experiance
       </h1>
-      <Box id="skills" className="mt-24 mx-auto w-11/12 md:w-2/3">
+      <Box id="skills" className="mt-24 mx-auto w-11/12 md:w-4/5 lg:w-2/3">
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
             value={value}

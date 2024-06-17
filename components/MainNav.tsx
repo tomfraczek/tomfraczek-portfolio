@@ -10,7 +10,7 @@ export const MainNav = () => {
         Stories
       </Link>
       <Link href="#skills" className="px-3">
-        Skills/Experiance
+        Skills & Experiance
       </Link>
       <Link href="#contact" className="px-3">
         Contact

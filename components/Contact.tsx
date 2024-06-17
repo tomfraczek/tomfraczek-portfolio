@@ -47,7 +47,7 @@ export const Contact = () => {
       <h3 className="text-3xl mb-6 text-center">
         LET&#39;S BUILD SOMETHING TOGETHER.
       </h3>
-      <div className="flex items-start justify-center px-28 py-10 ">
+      <div className="flex flex-col md:flex-row items-start justify-center md:w-4/5 lg:w-2/3 w-11/12 py-10 m-auto ">
         <div className="flex-1 border py-3 px-8">
           {!sent ? (
             <>
@@ -147,7 +147,7 @@ export const Contact = () => {
             </div>
           )}
         </div>
-        <div className="flex flex-col items-center flex-1">
+        <div className="flex flex-col items-center px-8 mt-10 md:mt-0 flex-1">
           <div className="flex flex-col">
             <div className="flex flex-col ">
               <span className="text-2xl mb-2 block">Email</span>
