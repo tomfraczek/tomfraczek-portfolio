@@ -3,7 +3,6 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { styled } from "@mui/material/styles";
 
 import contentful from "@/public/icons/contentful.svg";
 import modules from "@/public/icons/css-modules.svg";
@@ -37,7 +36,6 @@ import cambridge from "@/public/icons/cambridge.svg";
 import apptension from "@/public/icons/apptension.png";
 
 import Image from "next/image";
-import Link from "next/link";
 const techStack = [
   {
     title: "Bitbucket",
@@ -305,97 +303,102 @@ export const Experience = () => {
   };
 
   return (
-    <Box sx={{ width: "100%" }} id="skills" className="mt-24">
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-          centered
-        >
-          <Tab label="SKILLS" {...a11yProps(0)} />
-          <Tab label="EXPERIENCE" {...a11yProps(1)} />
-        </Tabs>
-      </Box>
-      <CustomTabPanel value={value} index={0}>
-        <div>
-          {categories.map((category) => (
-            <div
-              key={category}
-              className="flex flex-wrap gap-10 justify-start border-l-2 ml-36 pl-8 relative pb-16"
-            >
-              <span className="text-white absolute right-full top-0 bg-gray-500 p-[10px] pl-[15px] pr-[15px]">
-                {category.toUpperCase()}
-              </span>
-              {techStack
-                .filter((item) => item.category === category)
-                .sort((a, b) => a.title.localeCompare(b.title))
-                .map((item, i) => (
-                  <div className="relative group flex-none" key={i}>
-                    <a href={item.url} target="_blank">
-                      <Image
-                        priority={true}
-                        src={item.icon}
-                        height={50}
-                        alt={`${item.title} icon`}
-                        className="cursor-pointer transform transition-transform duration-300 hover:scale-125"
-                      />
-                    </a>
-                    <span className="absolute left-1/2 transform -translate-x-1/2 mt-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap">
-                      {item.title}
-                    </span>
-                  </div>
-                ))}
-            </div>
-          ))}
-        </div>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <div>
-          {experience.map((item, index) => (
-            <div
-              key={index}
-              className="flex gap-4 mb-8 relative justify-start border-l-2 ml-36"
-            >
-              <div className="flex-none absolute right-full top-0 w-max">
-                {item.logo && (
-                  <Image
-                    priority={true}
-                    src={item.logo}
-                    width={150}
-                    height={50}
-                    alt={`${item.company} logo`}
-                    className="p-3"
-                  />
-                )}
+    <div className="bg-gray-200 w-screen">
+      <Box id="skills" className="mt-24 mx-auto w-2/3">
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+            centered
+          >
+            <Tab label="SKILLS" {...a11yProps(0)} />
+            <Tab label="EXPERIENCE" {...a11yProps(1)} />
+          </Tabs>
+        </Box>
+        <CustomTabPanel value={value} index={0}>
+          <div>
+            {categories.map((category) => (
+              <div
+                key={category}
+                className="flex flex-wrap gap-10 justify-start border-l-2 ml-36 pl-8 relative pb-16"
+              >
+                <span className="text-white absolute right-full top-0 bg-gray-500 p-[10px] pl-[15px] pr-[15px]">
+                  {category.toUpperCase()}
+                </span>
+                {techStack
+                  .filter((item) => item.category === category)
+                  .sort((a, b) => a.title.localeCompare(b.title))
+                  .map((item, i) => (
+                    <div className="relative group flex-none" key={i}>
+                      <a href={item.url} target="_blank">
+                        <Image
+                          priority={true}
+                          src={item.icon}
+                          height={50}
+                          alt={`${item.title} icon`}
+                          className="cursor-pointer transform transition-transform duration-300 hover:scale-125"
+                        />
+                      </a>
+                      <span className="absolute left-1/2 transform -translate-x-1/2 mt-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 whitespace-nowrap">
+                        {item.title}
+                      </span>
+                    </div>
+                  ))}
               </div>
-              <div className="flex flex-col pl-8">
-                <h3 className="text-xl font-bold">{item.jobTitle}</h3>
-                <p className="text-sm text-gray-600">{item.company}</p>
-                <p className="text-sm text-gray-600">{item.location}</p>
-                <p className="text-sm text-gray-600">{item.period}</p>
-                <ul className="list-disc pl-5 mt-2">
-                  {item.description.map((desc, i) => (
-                    <li key={i} className="text-sm text-gray-800">
-                      {desc}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-3 items-center mt-5">
-                  <p className="text-sm text-gray-600 mr-5">
-                    Development tools:
-                  </p>
-                  {item.technologies.map((item, i) => (
-                    <span key={i} className="py-2 px-6 bg-gray-500 text-white">
-                      {item}
-                    </span>
-                  ))}
+            ))}
+          </div>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+          <div>
+            {experience.map((item, index) => (
+              <div
+                key={index}
+                className="flex gap-4 mb-8 relative justify-start border-l-2 ml-36"
+              >
+                <div className="flex-none absolute right-full top-0 w-max">
+                  {item.logo && (
+                    <Image
+                      priority={true}
+                      src={item.logo}
+                      width={150}
+                      height={50}
+                      alt={`${item.company} logo`}
+                      className="p-3"
+                    />
+                  )}
+                </div>
+                <div className="flex flex-col pl-8">
+                  <h3 className="text-xl font-bold">{item.jobTitle}</h3>
+                  <p className="text-sm text-gray-600">{item.company}</p>
+                  <p className="text-sm text-gray-600">{item.location}</p>
+                  <p className="text-sm text-gray-600">{item.period}</p>
+                  <ul className="list-disc pl-5 mt-2">
+                    {item.description.map((desc, i) => (
+                      <li key={i} className="text-sm text-gray-800">
+                        {desc}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-3 items-center mt-5">
+                    <p className="text-sm text-gray-600 mr-5">
+                      Development tools:
+                    </p>
+                    {item.technologies.map((item, i) => (
+                      <span
+                        key={i}
+                        className="py-2 px-6 bg-gray-500 text-white"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </CustomTabPanel>
-    </Box>
+            ))}
+          </div>
+        </CustomTabPanel>
+      </Box>
+    </div>
   );
 };
