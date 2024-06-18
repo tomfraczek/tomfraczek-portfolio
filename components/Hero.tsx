@@ -14,7 +14,7 @@ export const Hero = () => {
           applications using React, Next.js, Node.js & more
         </h1>
         <Link
-          href="/"
+          href="#contact"
           className="border border-black py-5 px-16 mt-6 block uppercase"
         >
           Get In Touch
